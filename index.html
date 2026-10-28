@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBloom ♡ My Pink Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-shell">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR LITTLE CORNER OF THE WORLD ♡</p>
+                <h1>Hey, beautiful! <span>✿</span></h1>
+                <p class="subtitle">A little progress every day is still progress.</p>
+            </div>
+
+            <button class="profile-button" id="profileButton">
+                <span class="avatar">P</span>
+                <span class="profile-label">
+                    <strong>My profile</strong>
+                    <small>A little about me</small>
+                </span>
+                <span>⌄</span>
+            </button>
+        </header>
+
+        <section class="profile-panel card hidden" id="profilePanel">
+            <button class="close-button" id="closeProfile" aria-label="Close profile">×</button>
+            <div class="avatar big-avatar">P</div>
+            <h2>A little about me ♡</h2>
+            <p class="muted">Your space, your story.</p>
+
+            <label for="profileName">Your name</label>
+            <input id="profileName" type="text" placeholder="What should we call you?">
+
+            <label for="profileAbout">A little about you</label>
+            <textarea id="profileAbout" rows="3" placeholder="Your dreams, goals, and little joys..."></textarea>
+
+            <label for="profileGoal">My current goal</label>
+            <input id="profileGoal" type="text" placeholder="e.g. Learn something new every day">
+
+            <button class="primary-button" id="saveProfile">Save my profile ♡</button>
+        </section>
+
+        <main>
+            <section class="welcome-banner">
+                <div class="banner-text">
+                    <span class="pill">A FRESH LITTLE START</span>
+                    <h2 id="greetingTitle">Make today lovely.</h2>
+                    <p id="dateSubtitle">One day at a time, one dream at a time.</p>
+                </div>
+                <div class="banner-art" aria-hidden="true">🌷</div>
+                <div class="banner-sparkle sparkle-one">✧</div>
+                <div class="banner-sparkle sparkle-two">♡</div>
+            </section>
+
+            <!-- DAILY INSPIRATION -->
+            <section class="inspiration-card">
+                <div class="inspiration-heading">
+                    <span class="inspiration-icon">✿</span>
+                    <h2>A little reminder for today</h2>
+                </div>
+
+                <p id="inspirationQuote">
+                    You don't have to have it all figured out.
+                    Just take the next little step. ♡
+                </p>
+
+                <p class="inspiration-footer">
+                    One small step is still progress.
+                </p>
+
+                <button id="newQuoteButton" type="button">
+                    ✨ Inspire me
+                </button>
+            </section>
+
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">DON'T FORGET, LOVE</p>
+                        <h2>Today's important things <span>♡</span></h2>
+                    </div>
+                    <span class="date-chip" id="todayChip"></span>
+                </div>
+
+                <div class="important-layout">
+                    <div class="important-card card">
+                        <div class="card-icon">🎀</div>
+                        <h3>Little reminders</h3>
+                        <p class="muted">Keep the important things close.</p>
+
+                        <form id="reminderForm" class="inline-form">
+                            <input id="reminderInput" type="text"
+                                   placeholder="Something to remember..."
+                                   maxlength="120" required>
+                            <button class="add-button" type="submit" aria-label="Add reminder">+</button>
+                        </form>
+
+                        <ul id="reminderList" class="reminder-list"></ul>
+                        <p class="empty-message" id="reminderEmpty">Your little reminders will live here. ♡</p>
+                    </div>
+
+                    <div class="quote-card card">
+                        <span class="quote-mark">“</span>
+                        <p class="quote-text">You don't have to bloom all at once.</p>
+                        <p class="quote-caption">Give yourself time, too. 🌸</p>
+                        <div class="flower-decoration">✿</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">SMALL STEPS COUNT</p>
+                        <h2>Today's tasks <span>♡</span></h2>
+                        <p class="muted">Do what you can, and be proud of it.</p>
+                    </div>
+                    <button class="secondary-button" id="reviewButton">♡ Review my day</button>
+                </div>
+
+                <div class="task-card card">
+                    <div class="task-progress-header">
+                        <span id="taskCount">0 tasks completed</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <form id="taskForm" class="task-entry">
+                        <input id="taskInput" type="text"
+                               placeholder="Add a little task to your day..."
+                               maxlength="160" required>
+                        <button class="primary-button" type="submit">+ Add task</button>
+                    </form>
+
+                    <div class="task-list" id="taskList"></div>
+                    <p class="empty-message" id="taskEmpty">Nothing on your list just yet. Add your first task! ♡</p>
+                </div>
+            </section>
+
+            <!-- WATER INTAKE -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A LITTLE LOVE FOR YOUR BODY</p>
+                        <h2>Water check 💧</h2>
+                        <p class="muted">Little sips, little reminders to care for yourself.</p>
+                    </div>
+                </div>
+
+                <div class="card water-card">
+                    <div class="water-top">
+                        <div>
+                            <h3>Have you had some water? ♡</h3>
+                            <p class="muted">Tap a glass every time you drink one.</p>
+                        </div>
+                        <div class="water-count" id="waterCount">0 / 8</div>
+                    </div>
+
+                    <div class="water-glasses" id="waterGlasses"></div>
+
+                    <div class="water-actions">
+                        <button class="primary-button" id="addWater">+ I drank a glass</button>
+                        <button class="text-button" id="resetWater">Reset today's count</button>
+                    </div>
+
+                    <p class="water-message" id="waterMessage">
+                        A gentle reminder to take a sip. 💗
+                    </p>
+                </div>
+            </section>
+
+            <!-- DAILY MOOD -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CHECK IN WITH YOUR HEART</p>
+                        <h2>How are you feeling today? <span>♡</span></h2>
+                        <p class="muted">No long answers needed. Just choose the emoji that feels like you.</p>
+                    </div>
+                </div>
+
+                <div class="card mood-card">
+                    <div class="mood-options" id="moodOptions">
+                        <button class="mood-option" data-mood="happy">
+                            <span>😊</span><small>Happy</small>
+                        </button>
+                        <button class="mood-option" data-mood="okay">
+                            <span>😌</span><small>Okay</small>
+                        </button>
+                        <button class="mood-option" data-mood="sad">
+                            <span>😔</span><small>Sad</small>
+                        </button>
+                        <button class="mood-option" data-mood="stressed">
+                            <span>🥹</span><small>Overwhelmed</small>
+                        </button>
+                        <button class="mood-option" data-mood="excited">
+                            <span>🤩</span><small>Excited</small>
+                        </button>
+                    </div>
+
+                    <p class="mood-feedback" id="moodFeedback">
+                        Every feeling is welcome here. ♡
+                    </p>
+
+                    <div class="mood-summary">
+                        <p class="eyebrow">THIS MONTH, IN FEELINGS</p>
+                        <div class="mood-stats" id="moodStats"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAILY JOURNAL AND MEMORY -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">LITTLE THOUGHTS, LITTLE MOMENTS</p>
+                        <h2>A piece of my day <span>♡</span></h2>
+                        <p class="muted">Write something, save a memory, or simply leave it blank.</p>
+                    </div>
+                </div>
+
+                <div class="daily-journal-grid">
+                    <div class="card journal-card">
+                        <h2>♡ Something I want to share today</h2>
+
+                        <p class="journal-private-message">
+                            Just for you. Your thoughts are welcome here. 🌷
+                        </p>
+
+                        <button type="button" id="toggleThought">
+                            🔒 Open my private journal
+                        </button>
+
+                        <div id="thoughtContent" class="hidden">
+                            <textarea
+                                id="dailyThought"
+                                placeholder="Write whatever is on your mind..."
+                                rows="5"
+                            ></textarea>
+
+                            <button type="button" id="saveThought">
+                                Save my thoughts ♡
+                            </button>
+
+                            <p id="thoughtStatus"></p>
+                        </div>
+                    </div>
+
+                    <div class="card memory-card">
+                        <div class="journal-icon">📸</div>
+                        <h3>A cute memory of today</h3>
+                        <p class="muted">A pretty sky, coffee with a friend, a flower, or anything special.</p>
+
+                        <label class="photo-upload" for="memoryImage">
+                            <span>🌷</span>
+                            <strong>Choose a photo</strong>
+                            <small>Optional · JPG, PNG or WebP</small>
+                        </label>
+
+                        <input type="file" id="memoryImage" accept="image/jpeg,image/png,image/webp"
+                            hidden>
+
+                        <div id="memoryPreview" class="memory-preview hidden">
+                            <img id="memoryPhoto" alt="Your memory of the day">
+                            <button type="button" class="remove-photo" id="removeMemory">
+                                Remove photo ×
+                            </button>
+                        </div>
+
+                        <button class="primary-button full-button" id="saveMemory">
+                            Save today's memory ♡
+                        </button>
+                        <p class="save-status" id="memoryStatus"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HAPPINESS WALL -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">KEEP THE GOOD THINGS CLOSE</p>
+                        <h2>My happiness wall <span>♡</span></h2>
+                        <p class="muted">Save a moment, a dream, or anything that makes your heart smile.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card card">
+                    <form id="happinessForm" class="feature-form">
+                        <input id="happinessTitle" type="text" placeholder="A little title..." maxlength="80" required>
+                        <textarea id="happinessDescription" rows="2" placeholder="Why this moment matters..." maxlength="240"></textarea>
+                        <label class="compact-upload" for="happinessImage">
+                            <span>📷</span> Add an optional photo
+                        </label>
+                        <input id="happinessImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                        <button class="primary-button" type="submit">Add to my wall ♡</button>
+                    </form>
+                    <p class="save-status" id="happinessStatus"></p>
+                    <div class="happiness-grid" id="happinessGrid"></div>
+                    <p class="empty-message" id="happinessEmpty">Your happy little moments will bloom here. ♡</p>
+                </div>
+            </section>
+
+            <!-- STUDY FOCUS TIMER -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A GENTLE FOCUS MOMENT</p>
+                        <h2>Study focus timer <span>♡</span></h2>
+                        <p class="muted">Twenty-five minutes of focus, then five minutes to breathe.</p>
+                    </div>
+                </div>
+
+                <div class="focus-layout">
+                    <div class="focus-card card">
+                        <span class="focus-mode" id="focusMode">Study time</span>
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                        <div class="timer-actions">
+                            <button class="primary-button" id="startTimer" type="button">Start</button>
+                            <button class="secondary-button" id="pauseTimer" type="button">Pause</button>
+                            <button class="text-button" id="resetTimer" type="button">Reset</button>
+                        </div>
+                        <p class="save-status" id="timerStatus"></p>
+                    </div>
+                    <div class="focus-stats card">
+                        <p class="eyebrow">TODAY'S FOCUS</p>
+                        <strong id="focusMinutes">0 min</strong>
+                        <span id="focusSessions">0 completed sessions</span>
+                        <p class="muted">Every focused minute counts. Keep going at your own pace. 🌷</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HABIT TRACKER -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">SMALL THINGS, OFTEN</p>
+                        <h2>My habit garden <span>♡</span></h2>
+                        <p class="muted">Choose a few habits and celebrate showing up for yourself.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card card">
+                    <form id="habitForm" class="inline-form">
+                        <input id="habitInput" type="text" placeholder="e.g. Read for 20 minutes..." maxlength="80" required>
+                        <button class="add-button" type="submit" aria-label="Add habit">+</button>
+                    </form>
+                    <div class="habit-list" id="habitList"></div>
+                    <p class="empty-message" id="habitEmpty">Your first little habit can grow here. ♡</p>
+                    <div class="habit-calendar">
+                        <div class="habit-calendar-top">
+                            <p class="eyebrow" id="habitMonthTitle">THIS MONTH</p>
+                            <div class="habit-legend"><span></span> completed</div>
+                        </div>
+                        <div class="habit-heatmap" id="habitHeatmap"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CURRENTLY LOVING -->
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A COLLECTION OF LITTLE JOYS</p>
+                        <h2>Currently loving <span>♡</span></h2>
+                        <p class="muted">Keep your favorite books, movies, songs, recipes, and places in one sweet spot.</p>
+                    </div>
+                </div>
+
+                <div class="loving-card card">
+                    <div class="collection-tabs" id="collectionTabs">
+                        <button class="collection-tab active" type="button" data-collection="books">📚 Books</button>
+                        <button class="collection-tab" type="button" data-collection="movies">🎬 Movies</button>
+                        <button class="collection-tab" type="button" data-collection="songs">🎵 Songs</button>
+                        <button class="collection-tab" type="button" data-collection="recipes">🍓 Recipes</button>
+                        <button class="collection-tab" type="button" data-collection="places">🌷 Places</button>
+                    </div>
+                    <form id="lovingForm" class="feature-form loving-form">
+                        <input id="lovingTitle" type="text" placeholder="What are you loving?" maxlength="100" required>
+                        <textarea id="lovingNote" rows="2" placeholder="A note about it..."></textarea>
+                        <label class="compact-upload" for="lovingImage">
+                            <span>📷</span> Add an optional image
+                        </label>
+                        <input id="lovingImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                        <button class="primary-button" type="submit">Save this favorite ♡</button>
+                    </form>
+                    <div class="loving-grid" id="lovingGrid"></div>
+                    <p class="empty-message" id="lovingEmpty">Your favorite things will appear here. ♡</p>
+                </div>
+            </section>
+
+            <section class="section-block calendar-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR DAYS, YOUR LITTLE MEMORIES</p>
+                        <h2>My calendar <span>♡</span></h2>
+                        <p class="muted">Tap a date to add a note or remember something special.</p>
+                    </div>
+                </div>
+
+                <div class="calendar-layout">
+                    <div class="calendar-card card">
+                        <div class="calendar-top">
+                            <button class="month-arrow" id="prevMonth" aria-label="Previous month">‹</button>
+                            <h3 id="monthTitle">Month Year</h3>
+                            <button class="month-arrow" id="nextMonth" aria-label="Next month">›</button>
+                        </div>
+
+                        <div class="weekdays">
+                            <span>Sun</span><span>Mon</span><span>Tue</span>
+                            <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid"></div>
+
+                        <div class="calendar-legend">
+                            <span><i class="legend-today"></i> Today</span>
+                            <span><i class="legend-note"></i> Has a note</span>
+                        </div>
+                    </div>
+
+                    <div class="note-card card">
+                        <div class="note-icon">🌸</div>
+                        <p class="eyebrow">A NOTE TO REMEMBER</p>
+                        <h3 id="selectedDateTitle">Pick a date</h3>
+                        <p class="muted" id="selectedDateHint">Your little plans belong here.</p>
+
+                        <textarea id="calendarNote"
+                                  rows="5"
+                                  placeholder="Write something important for this date..."></textarea>
+
+                        <button class="primary-button full-button" id="saveNote">Save this note ♡</button>
+                        <button class="text-button" id="deleteNote">Clear note</button>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>Made with love, just for you <span>♡</span></p>
+                <small>Remember to take care of yourself, too.</small>
+            </footer>
+        </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="reviewModal">
+        <div class="review-modal card">
+            <button class="close-button" id="closeReview" aria-label="Close review">×</button>
+            <div class="review-flower">🌷</div>
+            <p class="eyebrow">A MOMENT FOR YOURSELF</p>
+            <h2>How was your day, beautiful?</h2>
+            <p class="muted">Every day teaches you something. Take a moment to reflect.</p>
+
+            <label for="dayMood">How are you feeling?</label>
+            <select id="dayMood">
+                <option value="">Choose your mood...</option>
+                <option>Happy 🌸</option>
+                <option>Productive 🎀</option>
+                <option>Peaceful ☁️</option>
+                <option>Tired but trying 🌷</option>
+                <option>A little overwhelmed 💗</option>
+            </select>
+
+            <label for="dayReflection">One thing I'm proud of today</label>
+            <textarea id="dayReflection" rows="3" placeholder="Even a small thing counts..."></textarea>
+
+            <label for="dayTomorrow">One thing for tomorrow</label>
+            <textarea id="dayTomorrow" rows="2" placeholder="A little intention for tomorrow..."></textarea>
+
+            <button class="primary-button full-button" id="saveReview">Save today's reflection ♡</button>
+            <p class="review-status" id="reviewStatus"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
